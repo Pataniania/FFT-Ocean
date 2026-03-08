@@ -1,0 +1,19 @@
+float2 ComplexMultiplcation(float a, float b)
+{
+    return float2(a.x * b.x - a.y * b.y, a.x * b.y + a.y * b.x);
+}
+
+float2 ComplexExp(float angle)
+{
+    return float2(cos(angle), sin(angle));
+}
+
+float2 EvolveWave(float2 h0, float k_mag, float time)
+{
+    float g = 9.81;
+    float omega = sqrt(g * k_mag);
+
+    float2 exp_it = ComplexExp(omega * time);
+
+    return ComplexMul(h0, exp_it);
+}

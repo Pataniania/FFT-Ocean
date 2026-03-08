@@ -1,0 +1,23 @@
+static const float GRAVITY = 9.81;
+static const float PI  = 3.14159265;
+
+float GetPhillips (float2 k, float2  windDir, float windSpeed, float A)
+{
+    float k_len = length(k);
+
+    if(k_len  < 0.0001) return 0.0;
+
+    float L  = (windSpeed  * windSpeed)/GRAVITY;
+    float k2 = k_len *  k_len;
+    float k4 = k2  * k2;
+
+    float dotKW = dot(normalize(k), normalize(windDir));
+    float dotKW2 = dotKW * dotKW;
+
+    // The Core Equation
+    float phillips = A * (exp(-1.0 / (k2 * L * L)) / k4) * dotKW2;
+
+    if (dotKW < 0.0) phillips *= 0.01; 
+
+    return phillips;
+} 
