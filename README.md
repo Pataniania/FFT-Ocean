@@ -33,7 +33,7 @@ The simulation follows a multi-stage pipeline within Niagara:
 
 ### [2026-03-08] - Initial Setup & RT Pipeline
 * **Progress:** Successfully implemented the Niagara Emitter structure.
-* **Current Task:** Working on the ` Spectrum generation stage` 
+* **Current Task:** Working on the `Fixing issues with the render target not showing correctly` 
 
 ### [Planned Updates]
 - [ ] Implement Horizontal/Vertical IFFT passes.
